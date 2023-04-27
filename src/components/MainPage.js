@@ -44,16 +44,17 @@ function MainPage() {
                 question: question
             })
             });
+            
         item = await item.json();
         
         console.log(item);
     }
 
     async function getQuestions() {
-        let questions = await fetch("http://rita-server.herokuapp.com/questions");
+        let questions = await fetch("https://rita-server.herokuapp.com/questions");
         questions = await questions.json();
         
-        setQuestions(questions);
+        setQuestions(questions.toReversed());
     }
 
     
